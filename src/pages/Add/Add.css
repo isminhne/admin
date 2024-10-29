@@ -46,3 +46,13 @@
     color: white;
     cursor: pointer;
 }
+
+.preview {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.preview img{
+    width: 120px;
+}

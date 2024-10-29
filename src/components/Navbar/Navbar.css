@@ -10,3 +10,9 @@
 .navbar .profile{
     width: 40px;
 }
+
+.navbar .account{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
