@@ -1,4 +1,4 @@
-import './Add.css'
+import './AddProduct.css'
 import { assets } from '../../assets/assets'
 import {useForm} from "react-hook-form";
 import AuthService from "../../services/auth.service.js";
@@ -8,7 +8,7 @@ import {useEffect, useState} from "react";
 import ProductService from "../../services/product.service.js";
 import {useNavigate} from "react-router-dom";
 
-const Add = () => {
+const AddProduct = () => {
     const navigate = useNavigate();
     const [imageUrls, setImageUrls] = useState([]);
     const [categories, setCategories] = useState([]);
@@ -34,7 +34,7 @@ const Add = () => {
         });
         if (!isEmpty(res)) {
             pushToast("Add product successfully", "success");
-            navigate('/list');
+            navigate('/products');
         }
     };
 
@@ -139,4 +139,4 @@ const Add = () => {
   )
 }
 
-export default Add
+export default AddProduct

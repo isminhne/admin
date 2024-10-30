@@ -107,9 +107,34 @@ const deleteRequest = async (url, config = {
     });
 }
 
+const put = async (url, body = {}, config = {
+  headers: {
+    "Authorization": `Bearer ${cookies.get("token", { path: "/" })}`
+  }
+}) => {
+  return axios.put(url, body, config)
+    .then(response => {
+      return response.data;
+    })
+    .catch(error => {
+      const statusCode = error?.response?.status;
+      if (statusCode === statusCodes.UNAUTHORIZED) {
+        cookies.remove("token", { path: "/" });
+        cookies.remove("user");
+        pushToast("Bạn cần đăng nhập trước!", "error");
+        window.location.reload();
+      }
+      // if (statusCode === statusCodes.NOT_FOUND) {
+      //   pushToast("Lỗi không xác định, vui lòng thử lại sau!", "error");
+      // }
+      throw error
+    });
+}
+
 export {
   get,
   post,
   patch,
-  deleteRequest
+  deleteRequest,
+  put
 }

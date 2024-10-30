@@ -1,5 +1,5 @@
 import pushToast from "../helpers/sonnerToast.js";
-import {deleteRequest, get, post} from "../utils/requestsApi.js";
+import {deleteRequest, get, patch, post, put} from "../utils/requestsApi.js";
 
 
 const getAllProducts = async ({
@@ -80,9 +80,44 @@ const createProduct = async ({
   }
 }
 
+const getProduct = async (id) => {
+  try {
+    const res = await get(`/products/${id}`);
+    return res;
+  } catch (e) {
+    pushToast(e.response.data.message, "error");
+  }
+}
+
+const updateProduct = async ({
+  id,
+  title,
+  description,
+  price,
+  count,
+  images,
+  category
+}) => {
+  try {
+    const res = await put(`/products/${id}`, {
+      title,
+      description,
+      price,
+      count,
+      images,
+      category
+    });
+    return res;
+  } catch (e) {
+    pushToast(e.response.data.message, "error");
+  }
+}
+
 export default {
   getAllProducts,
   deleteProduct,
   getCategories,
-  createProduct
+  createProduct,
+  getProduct,
+  updateProduct
 }

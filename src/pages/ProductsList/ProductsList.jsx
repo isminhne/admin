@@ -1,11 +1,11 @@
 import React, {useEffect} from 'react'
-import './List.css'
+import './ProductsList.css'
 import {NavLink} from "react-router-dom";
 import ProductService from "../../services/product.service.js";
 import pushToast from "../../helpers/sonnerToast.js";
 import ReactPaginate from 'react-paginate';
 
-const List = () => {
+const ProductsList = () => {
 
     const [list, setList] = React.useState([]);
     const [pagination, setPagination] = React.useState({});
@@ -41,14 +41,13 @@ const List = () => {
 
   useEffect(() => {
     fetchList({});
-    console.log(pagination)
   }, []);
 
   return (
     <>
       <div className='list add flex-col'>
           <p>All Foods List</p>
-          <NavLink to={"/add"} className="add-btn">Add</NavLink>
+          <NavLink to={"/products/add"} className="add-btn">Add</NavLink>
           <div className="list-table">
               <div className="list-table-format title">
                   <b>Image</b>
@@ -65,7 +64,10 @@ const List = () => {
                       <p>{item?.title}</p>
                       <p>{item?.category?.title}</p>
                       <p>{item?.price} vnd</p>
-                      <p onClick={()=>removeFood(item._id)} className="cursor">x</p>
+                      <div>
+                        <p onClick={()=>removeFood(item._id)} className="cursor">x</p>
+                          <NavLink to={`/products/${item._id}/update`}>Update</NavLink>
+                      </div>
                   </div>
                   )
               })}
@@ -95,4 +97,4 @@ const List = () => {
   )
 }
 
-export default List
+export default ProductsList
