@@ -51,7 +51,7 @@ export default function UpdateProduct() {
     });
     if (!isEmpty(res)) {
       pushToast("Update product successfully", "success");
-      // navigate('/products');
+      navigate('/products');
     }
   };
 
@@ -163,7 +163,7 @@ export default function UpdateProduct() {
             />
           </div>
         </div>
-        <button type='submit' className='add-btn'>ADD</button>
+        <button type='submit' className='add-btn'>UPDATE</button>
       </form>
 
     </div>

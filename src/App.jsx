@@ -7,6 +7,9 @@ import Login from "./pages/Login/Login.jsx";
 import Layout from "./pages/Layout/Layout.jsx";
 import Register from "./pages/Register/Register.jsx";
 import UpdateProduct from "./pages/UpdateProduct/UpdateProduct.jsx";
+import CategoriesList from "./pages/CategoriesList/CategoriesList.jsx";
+import AddCategory from "./pages/AddCategory/AddCategory.jsx";
+import UpdateCategory from "./pages/UpdateCategory/UpdateCategory.jsx";
 
 const App = () => {
 
@@ -24,6 +27,9 @@ const App = () => {
           <Route path="/products/add" element={<AddProduct/>}/>
           <Route path="/products/:id/update" element={<UpdateProduct/>}/>
           <Route path="/orders" element={<Orders/>}/>
+          <Route path="/categories" element={<CategoriesList/>}/>
+          <Route path="/categories/add" element={<AddCategory/>}/>
+          <Route path="/categories/:id/update" element={<UpdateCategory/>}/>
         </Route>
         <Route path="/auth/login" element={<Login/>}/>
         <Route path="/auth/register" element={<Register/>}/>

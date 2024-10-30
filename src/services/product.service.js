@@ -1,5 +1,6 @@
 import pushToast from "../helpers/sonnerToast.js";
 import {deleteRequest, get, patch, post, put} from "../utils/requestsApi.js";
+import CategoriesService from "./categories.service.js";
 
 
 const getAllProducts = async ({
@@ -41,20 +42,13 @@ const getCategories = async ({
   order = "desc",
   search = null,
 }) => {
-  try {
-    const res = await get('/categories', {
-      params: {
-        page,
-        limit,
-        sortBy,
-        order,
-        search,
-      }
-    });
-    return res;
-  } catch (e) {
-    pushToast(e.response.data.message, "error");
-  }
+  return await CategoriesService.getAllCategories({
+    page,
+    limit,
+    sortBy,
+    order,
+    search
+  });
 }
 
 const createProduct = async ({
