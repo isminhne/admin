@@ -1,0 +1,44 @@
+/* DetailOrder.css */
+.order-details {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.order-details h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.order-details p {
+    margin: 5px 0;
+}
+
+.order-details h2 {
+    margin-top: 20px;
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-around;
+}
+
+.product-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    flex-basis: 30%;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.product-item img {
+    display: block;
+    margin-top: 10px;
+    max-width: 100%;
+    height: auto;
+}

@@ -10,6 +10,7 @@ import UpdateProduct from "./pages/UpdateProduct/UpdateProduct.jsx";
 import CategoriesList from "./pages/CategoriesList/CategoriesList.jsx";
 import AddCategory from "./pages/AddCategory/AddCategory.jsx";
 import UpdateCategory from "./pages/UpdateCategory/UpdateCategory.jsx";
+import DetailOrder from "./pages/DetailOrder/DetailOrder.jsx";
 
 const App = () => {
 
@@ -27,6 +28,7 @@ const App = () => {
           <Route path="/products/add" element={<AddProduct/>}/>
           <Route path="/products/:id/update" element={<UpdateProduct/>}/>
           <Route path="/orders" element={<Orders/>}/>
+          <Route path="/orders/:id" element={<DetailOrder/>}/>
           <Route path="/categories" element={<CategoriesList/>}/>
           <Route path="/categories/add" element={<AddCategory/>}/>
           <Route path="/categories/:id/update" element={<UpdateCategory/>}/>

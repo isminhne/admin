@@ -26,3 +26,7 @@
         display: none;
     }
 }
+
+.list-table-format.orders-list {
+    grid-template-columns: 0.5fr 2fr 0.5fr 0.5fr 0.5fr 0.5fr !important;
+}

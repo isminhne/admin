@@ -3,11 +3,13 @@ import statusCodes from "../utils/statusCodes.js";
 import cookies from "../utils/cookies.js";
 import pushToast from "../helpers/sonnerToast.js";
 
-const get = async (url, config = {
-  headers: {
-    "Authorization": `Bearer ${cookies.get("token", { path: "/" })}`
+const get = async (url, config = {}) => {
+  config = {
+    ...config,
+    headers: {
+      "Authorization": `Bearer ${cookies.get("token", { path: "/" })}`
+    }
   }
-}) => {
   return axios.get(url, config)
     .then(response => {
       return response.data;
@@ -16,10 +18,10 @@ const get = async (url, config = {
       // pushToast("Lỗi không xác định, vui lòng thử lại sau!", "error");
       const statusCode = error?.response?.status;
       if (statusCode === statusCodes.UNAUTHORIZED) {
-        cookies.remove("token", { path: "/" });
-        cookies.remove("user");
+        // cookies.remove("token", { path: "/" });
+        // cookies.remove("user");
         pushToast("Bạn cần đăng nhập trước!", "error");
-        window.location.reload();
+        // window.location.reload();
       }
       throw error
       // if (statusCode === statusCodes.NOT_FOUND) {
